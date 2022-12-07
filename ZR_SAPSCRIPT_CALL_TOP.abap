@@ -1,0 +1,98 @@
+*======================================================================*
+*                                                                      *
+*                       github.com/vitorcarlessi/                      *
+*                                                                      *
+*======================================================================*
+* Program.....: ZR_SAPSCRIPT_CALL                                      *
+* Include.....: ZR_SAPSCRIPT_CALL_TOP                                  *
+* Module......: ALL                                                    *
+* Description.: SAPSCRIPT CALL - Basic Example                         *
+*----------------------------------------------------------------------*
+* Author......: Vitor Crepaldi Carlessi                                *
+* Date........: 07.12.2022                                             *
+*======================================================================*
+
+DATA: BEGIN OF header OCCURS 0,
+        pernr             LIKE pernr-pernr,
+        bukrs             LIKE p0001-bukrs,
+        empresa           LIKE bapibranch-name,
+        city              LIKE addr1_val-city1,
+        state             LIKE addr1_val-region,
+        address(120)      TYPE c,
+        cgc               LIKE bapibranch-cgc_number,
+        empregado         LIKE pernr-ename,
+        nationality       LIKE t005t-natio,
+        estado_civil      LIKE t7bre1-civil,
+        ctps_num          LIKE p0185-icnum,
+        ctps_ser          LIKE p0185-icnum,
+        address_ee        LIKE p0006-stras,
+        position          TYPE p0001-plans,
+        position_text     TYPE char40,
+        cbo               TYPE pbr_cbo6,
+        cbode             LIKE t7br20-cbode,
+        contract_days1(3) TYPE n,
+        contract_days2(3) TYPE n,
+        contr_begda1      TYPE d,
+        contr_endda1      TYPE d,
+        contr_begda2      TYPE d,
+        contr_endda2      TYPE d,
+        hours_week        LIKE p0007-wostd,
+        time_from         TYPE time_from,
+        time_to           TYPE time_to,
+        break_time        TYPE time_to,
+        salary            LIKE pc207-betrg,
+        periodo(04),
+        dest_empresa      LIKE bapibranch-name,
+        dest_3city        LIKE addr1_val-city1,
+        dest_state        LIKE addr1_val-region,
+        dest_address(80)  TYPE c,
+        dest_cgc          LIKE bapibranch-cgc_number,
+        drive_nr          LIKE p0465-drive_nr,
+        drive_nr_val      TYPE char8,
+        filial            LIKE v_t7br0p-btrtl,
+        stcd1             TYPE char18,
+        post_code1        TYPE adrc-post_code1,
+        endereco          TYPE char255,
+        house_num1        TYPE adrc-house_num1,
+        cname             TYPE pa0002-cname,
+        ctps_nr           TYPE pa0465-ctps_nr,
+        ctps_serie        TYPE pa0465-ctps_serie,
+        cpf_nr            TYPE pa0465-cpf_nr,
+        day               TYPE char2,
+        month             TYPE char20,
+        year              TYPE char4,
+        contr_begda1_txt  TYPE string.
+DATA: END OF header.
+
+DATA: BEGIN OF footer OCCURS 0,
+        pernr        LIKE pernr-pernr,
+        city         LIKE addr1_val-city1,
+        day          TYPE char2,
+        month        TYPE t247-ltx,
+        year         TYPE char4,
+        comp_name    LIKE bapibranch-name,
+        empl_name    LIKE p0002-cname,
+        father_name  LIKE p0021-fcnam,
+        mother_name  LIKE p0021-fcnam,
+        grau_instr   LIKE t7br7t-escdd,
+        titulo_nr    LIKE p0185-icnum,
+        titulo_zona  LIKE p0185-icnum,
+        titulo_secao LIKE p0185-icnum,
+        reserv_nr    LIKE p0185-icnum,
+        reserv_categ LIKE p0185-icnum,
+        pis_num      LIKE p0185-icnum,
+        pis_date     TYPE d,
+        cpf          LIKE p0185-icnum,
+        rg           LIKE p0185-icnum,
+        data_nasc    TYPE d,
+        local_nasc   LIKE p0021-fgbot,
+        bank_fgts    LIKE bnka_bf-bnklz,
+        name_bk_fgts LIKE bnka_bf-banka,
+        agency_fgts  LIKE bnka_bf-brnch,
+        fgts_city    LIKE bnka_bf-ort01,
+        bank_pis     LIKE bnka_bf-bnklz,
+        name_bk_pis  LIKE bnka_bf-banka,
+        agency_pis   LIKE bnka_bf-brnch,
+        pis_city     LIKE bnka_bf-ort01,
+        cart_habil   LIKE p0185-icnum,
+      END OF footer.
